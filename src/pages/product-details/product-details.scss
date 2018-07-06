@@ -1,0 +1,9 @@
+page-product-details {
+	ion-card-content {
+		direction: rtl;
+	}
+	ion-card-content > ion-card-title {
+		font-size: 16px !important;
+		direction: rtl;
+	}
+}

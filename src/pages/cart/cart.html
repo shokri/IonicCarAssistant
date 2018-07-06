@@ -1,0 +1,78 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>سبد محصولات</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-card [hidden]='!emptyCartMessage' class='empty'>
+	<ion-list>
+		<ion-divider-item>هیچ کالایی یافت نشد!</ion-divider-item>
+	</ion-list>
+</ion-card>
+
+
+<ion-card *ngFor='let item of cartItems; let i = index'>
+	<ion-item color='light'>
+
+		<ion-thumbnail item-left style='min-width: 60px;min-height: 60px'>
+			<img [src]='item.product.img' style='width: 60px;height: 60px' />
+		</ion-thumbnail>
+		<h2>{{ item.product.title }}</h2>
+		<p>{{ item.qty }} * {{ item.product.price }} تومان</p>
+		<button ion-button clear item-right (click)='removeFromCart(item, i)'>
+			<ion-icon name='close-circle'></ion-icon>
+		</button>
+
+	</ion-item>
+
+	<ion-item class='compact'>
+		<ion-row no-padding>
+			<ion-col col-8>
+				<button ion-button icon-only clear (click)='changeQty(item, i, -1)' small>
+					<ion-icon name='remove-circle'></ion-icon>
+				</button>
+				<button ion-button outline color='dark' small>{{ item.qty }}</button>
+				<button ion-button icon-only clear (click)='changeQty(item, i, 1)' small>
+					<ion-icon name='add-circle'></ion-icon>
+				</button>
+			</ion-col>
+		</ion-row>
+	</ion-item>
+</ion-card>
+
+<ion-grid [hidden]='emptyCartMessage' dir='rtl'>
+	<ion-card>
+		<ion-grid>
+			<ion-row>
+				<ion-col col-7>
+					<b>مبلغ کل</b>
+				</ion-col>
+				<ion-col col-5>
+					<b>{{ total }} تومان</b>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card>
+</ion-grid>
+
+</ion-content>
+
+<ion-footer>
+	<ion-toolbar color='light'>
+		<ion-grid>
+			<ion-row>
+				<ion-col>
+					<button ion-button outline block (click)='closeModal()'>بازگشت</button>
+				</ion-col>
+				<ion-col>
+					<button ion-button block (click)='checkout()'>بررسی</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-toolbar>
+</ion-footer>

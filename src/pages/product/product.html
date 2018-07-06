@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>لیست محصولات</ion-title>
+    <ion-buttons end>
+      <button (click)='openCart()' ion-button icon-only>
+        <ion-icon name='cart'></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div text-center>
+    <ion-spinner [hidden]="!isLoading" color="primary"></ion-spinner>
+    <p class="error-message" text-center [hidden]="!errorMessage">{{errorMessage}}</p>
+    <button ion-button block icon-left (tap)="loadProduct()" [hidden]="!errorMessage">
+      <ion-icon name="refresh"></ion-icon>
+      سعی مجدد
+    </button>
+  </div>
+
+    <ion-list *ngFor="let p of products" no-margin>
+      <product-list-item [prods]="p"></product-list-item>
+    </ion-list>
+</ion-content>

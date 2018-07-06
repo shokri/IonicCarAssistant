@@ -1,0 +1,16 @@
+page-cart {
+	ion-item p {
+		direction: rtl;
+		text-align: left
+	}
+	.empty {
+		direction: rtl;
+		text-align: center;
+	}
+	.card {
+		margin-top: 10px;
+	}
+	.compact .item-inner .input-wrapper ion-label {
+		margin: 0 !important;
+	}
+}

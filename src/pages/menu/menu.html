@@ -1,0 +1,38 @@
+<ion-menu [content]='content'>
+	<ion-header no-padding>
+		<img src='assets/images/mashinno.jpg' style="width: 304px" />
+	</ion-header>
+
+	<ion-content no-padding>
+		<ion-list>
+			<ion-item-divider color='light'>حساب کاربری</ion-item-divider>
+			<ion-item (click)='openPage("signup")' menuClose text-wrap>
+				<ion-icon name='person-add' item-left large></ion-icon>
+				<h3>ثبت نام</h3>
+				<p>ثبت حساب کاربری جدید</p>
+			</ion-item>
+			<ion-item (click)='openPage("login")' menuClose text-wrap>
+				<ion-icon name='log-in' item-left large></ion-icon>
+				<h3>ورود</h3>
+				<p>ورود به حساب کاربری</p>
+			</ion-item>
+			<ion-item text-wrap>
+				<ion-icon name='contact' item-left large></ion-icon>
+				<h3>نام کاربری</h3>
+				<p>کاربر وارد شده به اکانت خود</p>
+			</ion-item>
+			<ion-item (click)='openPage("cart")' menuClose text-wrap>
+				<ion-icon name='cart' item-left large></ion-icon>
+				<h3>سبد کالا</h3>
+				<p>سبد لیست محصولات شما</p>
+			</ion-item>
+			<ion-item menuClose text-wrap>
+				<ion-icon name='log-out' item-left large></ion-icon>
+				<h3>خروج</h3>
+				<p>خروج از حساب کاربری</p>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled='false'></ion-nav>

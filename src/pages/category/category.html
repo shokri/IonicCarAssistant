@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>لوازم یدکی خودرو</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <div text-center>
+    <ion-spinner [hidden]="!isLoading" color="primary"></ion-spinner>
+    <p class="error-message" text-center [hidden]="!errorMessage">{{errorMessage}}</p>
+    <button ion-button block icon-left (tap)="loadMediaSamples()" [hidden]="!errorMessage">
+      <ion-icon name="refresh"></ion-icon>
+      سعی مجدد
+    </button>
+  </div>
+  <div class="media-sample-container">
+    <ion-list *ngFor="let media of mediaSamples" (click)="openModel(media)" no-margin>
+      <media-sample-item [mediaSample]="media"></media-sample-item>
+    </ion-list>
+  </div>
+</ion-content>

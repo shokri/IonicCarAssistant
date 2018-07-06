@@ -1,0 +1,12 @@
+  <ion-item>
+    <ion-thumbnail item-start (click)='productDetails(prods)'>
+      <img src="{{prods.img}}" />
+    </ion-thumbnail>
+    <h3>{{ prods.title }}</h3>
+    <p>{{ prods.price }} 
+      <span [hidden]='Empty(prods.price)'>تومان</span>
+    </p>
+    <button [hidden]='Empty(prods.price)' ion-button icon-only clear item-end (click)='addToCart(prods)'>
+    	<ion-icon name='cart'></ion-icon>
+    </button>
+  </ion-item>

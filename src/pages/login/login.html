@@ -1,0 +1,29 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ورود به حساب کاربری</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card>
+		<img src='assets/images/logo.jpg'/>
+	</ion-card>
+
+	<ion-list>
+		<ion-item>
+			<ion-label floating>نام کاربری</ion-label>
+			<ion-input type='text'></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label floating>پسورد</ion-label>
+			<ion-input type='password'></ion-input>
+		</ion-item>
+	</ion-list>
+
+	<button ion-button block>ورود</button>
+	<button ion-button clear block (click)='signup()'>ثبت نام نکردید؟</button>
+
+</ion-content>

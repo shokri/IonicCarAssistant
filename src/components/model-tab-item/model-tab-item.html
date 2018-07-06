@@ -1,0 +1,2 @@
+<ion-item-divider color='light'>{{ model.title }}</ion-item-divider>
+<img *ngFor="let i of model.item" src="{{i.img}}" (click)='openProduct(model)'>

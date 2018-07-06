@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>مشخصات محصول</ion-title>
+	<ion-buttons end>
+	  <button (click)='openCart()' ion-button icon-only>
+	    <ion-icon name='cart'></ion-icon>
+	  </button>
+	</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+<ion-card>
+	<ion-slides autoplay='3000'>
+		<ion-slide>
+			<img [src]='product.img' />
+		</ion-slide>
+	</ion-slides>
+
+	<ion-card-content>
+		<ion-card-title>
+			{{product.title}}
+		</ion-card-title>
+
+		<button [hidden]='Empty(product.price)' ion-button icon-left block outline (click)='addToCart(product)'>
+			<ion-icon name='basket'> ارسال به سبد کالا </ion-icon>
+		</button>
+	</ion-card-content>
+</ion-card>
+
+<ion-card>
+	<ion-card-content>
+		<ion-card-title>
+			مشخصات
+		</ion-card-title>
+
+		<ion-grid>
+			<ion-row *ngFor="let f of product.details">
+				<ion-col col-4>کد محصول</ion-col> <ion-col col-8>{{ f.code }}</ion-col>
+				<ion-col col-4>کد جایگزین</ion-col> <ion-col col-8>{{ f.alternative }}</ion-col>
+				<ion-col col-4>برند محصول</ion-col> <ion-col col-8>{{ f.brand }}</ion-col>
+				<ion-col col-4>کشور سازنده</ion-col> <ion-col col-8>{{ f.country }}</ion-col>
+				<ion-col col-4>وضعیت انبار</ion-col> <ion-col col-8>{{ f.status }}</ion-col>
+				<ion-col col-4>گارانتی</ion-col> <ion-col col-8>{{ f.guarantee }}</ion-col>
+				<ion-col col-4>توضیحات</ion-col> <ion-col col-8>{{ f.description }}</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-card-content>
+</ion-card>
+</ion-content>
